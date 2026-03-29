@@ -1,0 +1,11 @@
+{
+  "name": "suyab-portfolio",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix react-portfolio run dev",
+    "install": "cd react-portfolio && npm install",
+    "build": "cd react-portfolio && npm install && npm run build",
+    "vercel-build": "cd react-portfolio && npm install && npm run build",
+    "preview": "npm --prefix react-portfolio run preview"
+  }
+}
