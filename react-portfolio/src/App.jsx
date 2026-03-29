@@ -57,7 +57,7 @@ function App() {
           </div>
         </div>
       </section>
-      <footer className="footer footer-small">© 2026<br />Designed by Anaura</footer>
+      {/* <footer className="footer footer-small">© 2026<br />Designed by Anaura</footer> */}
     </>
   );
 }
