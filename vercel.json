@@ -2,10 +2,10 @@
   "version": 2,
   "builds": [
     {
-      "src": "package.json",
+      "src": "react-portfolio/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "react-portfolio/dist"
+        "distDir": "dist"
       }
     }
   ]
