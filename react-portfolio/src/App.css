@@ -17,8 +17,11 @@ body {
 /* HERO SECTION */
 .hero {
     position: relative;
-    height: 100vh;
+    height: 90vh;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
     opacity: 1;
     transition: opacity 0.3s ease;
@@ -37,9 +40,18 @@ body {
 .footer {
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 0 20px;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     opacity: 0;
     animation: fadeIn 0.8s ease forwards 0.7s;
+}
+
+.footer-small {
+    font-size: 0.9rem;
+    line-height: 1.4;
 }
 
 @keyframes fadeIn {
@@ -49,10 +61,8 @@ body {
 
 /* right-side image wrapper */
 .image-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  position: relative;
+  width: min(900px, 100%);
   height: 100%;
   overflow: hidden;
   z-index: 1;
@@ -67,14 +77,64 @@ body {
   object-position: center;
 }
 
+.vogue-name {
+  position: absolute;
+  top: 10%;
+  left: 8%;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  font-family: 'Playfair Display', serif;
+  font-weight: 800;
+  font-size: clamp(6rem, 12vw, 10.5rem);
+  line-height: 0.85;
+  letter-spacing: -0.08em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.vogue-name span {
+  display: block;
+  opacity: 0;
+  transform: translateY(24px) skewX(-10deg);
+  filter: blur(3px);
+  animation: brushStrokeReveal 0.7s ease forwards;
+}
+
+.vogue-name span:nth-child(1) { animation-delay: 2.2s; }
+.vogue-name span:nth-child(2) { animation-delay: 2.45s; }
+.vogue-name span:nth-child(3) { animation-delay: 2.7s; }
+.vogue-name span:nth-child(4) { animation-delay: 2.95s; }
+.vogue-name span:nth-child(5) { animation-delay: 3.2s; }
+
+@keyframes brushStrokeReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) skewX(-10deg);
+    filter: blur(3px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-4px) skewX(-6deg);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) skewX(0deg);
+    filter: blur(0);
+  }
+}
+
 /* Rectangle with grayscale effect INSIDE */
 .grayscale-box {
     position: absolute;
     left: 50%;
     top: 60%;
     width: 50%;
-    height: 50%;
+    height: 70%;
     border: 3px solid white;
+    background: rgba(255, 255, 255, 0.18);
     filter: grayscale(100%);
     backdrop-filter: grayscale(100%);
     -webkit-backdrop-filter: grayscale(100%);
@@ -139,7 +199,11 @@ body {
 .footer {
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 0 20px;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Animations */
@@ -199,19 +263,29 @@ body {
   .hero {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: auto;
+    min-height: 100vh;
     margin: 0;
     border-radius: 0;
     overflow: hidden;
   }
 
+  .image-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
   .main-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
     object-position: center top;
   }
 
   .vogue-name {
-    left: 12%;
-    top: 11%;
+    left: 10%;
+    top: 10%;
   }
 
   .vogue-name span:nth-child(2) {
@@ -237,53 +311,50 @@ body {
   .grayscale-box {
     left: 55%;
     top: 55%;
-    width: 38%;
-    height: 32%;
+    width: 60%;
+    height: 70%;
   }
 }
 
 @media (min-width: 769px) {
   .hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .hero-content {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #458193;
-    padding: 4rem 5rem;
-  }
-
-  .hero-text h1 {
-    color: #fff;
-    font-size: clamp(3rem, 5vw, 5rem);
-    line-height: 1.05;
-    letter-spacing: 0.04em;
+    padding: 0 2rem;
   }
 
   .image-wrapper {
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: min(1100px, 95vw);
+    height: min(82vh, 900px);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
   }
 
   .main-img {
     object-position: center;
   }
 
+  .vogue-name {
+    left: 5%;
+    top: 12%;
+    font-size: clamp(7rem, 8vw, 11rem);
+  }
+
   .grayscale-box {
-    left: 25%;
-    top: 58%;
-    width: 32%;
-    height: 32%;
+    left: 38%;
+    top: 52%;
+    width: 36%;
+    height: 62%;
   }
 
   .social-links {
-    top: 50%;
+    top: 48%;
     right: 4%;
     transform: translateY(-50%);
+    gap: 28px;
   }
 }
 

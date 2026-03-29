@@ -28,13 +28,18 @@ function App() {
       )}
 
       <section className={`hero ${loading ? 'hero-hidden' : 'hero-visible'}`}>
-        <div className="hero-content">
-          <div className="hero-text">
-            <h1>Hello! I'm<br />Md Suyab Ahmed</h1>
-          </div>
-        </div>
         <div className="image-wrapper">
-          <img src="/images/with name.jpg" className="main-img" alt="Portfolio" />
+          <picture>
+            <source media="(max-width: 768px)" srcSet="/images/normal.jpg" />
+            <img src="/images/with name.jpg" className="main-img" alt="Portfolio" />
+          </picture>
+          <div className="vogue-name" aria-hidden="true">
+            <span>S</span>
+            <span>U</span>
+            <span>Y</span>
+            <span>A</span>
+            <span>B</span>
+          </div>
           <div className="grayscale-box"></div>
           <div className="social-links">
             <a href="https://www.facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook"><i className="bi bi-facebook"></i></a>
@@ -43,7 +48,7 @@ function App() {
           </div>
         </div>
       </section>
-      <footer className="footer">© 2025<br />Designed by Anaura</footer>
+      <footer className="footer footer-small">© 2026<br />Designed by Anaura</footer>
     </>
   );
 }
