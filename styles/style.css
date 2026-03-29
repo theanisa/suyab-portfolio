@@ -1,0 +1,206 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background:#458193;
+    overflow-x: hidden;
+    font-family: 'Playfair Display', serif;
+}
+
+/* HERO SECTION */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+.bg-img2 {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left;
+    filter:none;
+    background-color: #000;
+}
+/* right-side image wrapper */
+.image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;      /* show full with-name image */
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* main image fills the wrapper */
+.main-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* cover the area without distortion */
+  object-position: center;
+}
+
+/* Rectangle with grayscale effect INSIDE */
+.grayscale-box {
+    position: absolute;
+
+    /* Position of rectangle (customize freely) */
+    left: 50%;
+    top: 60%;
+    width: 50%;
+    height: 50%;
+
+    border: 3px solid white;
+
+    /* Grayscale only inside rectangle */
+    filter: grayscale(100%);
+
+    /* Clip the image inside the rectangle */
+    backdrop-filter: grayscale(100%);
+    -webkit-backdrop-filter: grayscale(100%);
+
+    pointer-events: none;
+}
+.vogue-name {
+    position: absolute;
+    top: 12%;
+    left: 10%;
+    z-index: 10;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 800;
+    font-size: 11.5vw;
+    line-height: 0.82;
+    letter-spacing: -0.08em;
+    color: white;
+    text-transform: uppercase;
+}
+
+.vogue-name span {
+    display: block;
+}
+
+.hero-line {
+    position: absolute;
+    right: 10%;
+    top: 8%;
+    bottom: 8%;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.85);
+    z-index: 10;
+}
+
+.hero:hover .bg-img {
+    filter: brightness(100%);
+}
+
+/* NAME & DESCRIPTION */
+.name-box {
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    color: white;
+    z-index: 10;
+}
+.footer{
+    color:white;
+}
+
+.hero-name {
+    font-size: 4rem;
+    line-height: 1;
+    letter-spacing: 2px;
+    overflow: visible;
+    opacity: 1;
+    object-position: center;
+    animation: none;
+    margin-bottom: 1rem;
+    line-height: 1;
+}
+/* blinking caret shown while typing */
+.hero-name.typing::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  margin-left: 8px;
+  background: #fff;
+  vertical-align: middle;
+  animation: blink 1s steps(1) infinite;
+}
+
+
+/* .hero-role {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    opacity: 0;
+    animation: fadeSlide 1.5s ease forwards;
+    animation-delay: .5s;
+} */
+
+/* SOCIAL ICONS */
+.social-links {
+    position: absolute;
+    right: 3%;
+    top: 20%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    z-index: 10;
+    animation: fadeSlide 1s ease forwards;
+}
+
+.social-links a {
+    color: white;
+    font-size: 2.1rem;
+    transition: .3s;
+}
+
+.social-links a:hover {
+    transform: translateX(-5px);
+    color: #07d9ff;
+}
+ /* Animations */
+@keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes previewMove {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-20px); }
+}
+/* blink keyframes */
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@media (max-width: 768px) {
+  .vogue-name {
+    left: 8%;
+    font-size: 14vw;
+  }
+
+  .vogue-name span:nth-child(2) {
+    margin-left: 1.8rem;
+  }
+
+  .vogue-name span:nth-child(3) {
+    margin-left: 0.4rem;
+  }
+
+  .vogue-name span:nth-child(4) {
+    margin-left: 1.8rem;
+  }
+
+  .vogue-name span:nth-child(5) {
+    margin-left: 0.2rem;
+  }
+}
